@@ -45,6 +45,7 @@ class CommentsController extends Controller
 
         $comment->save();
 
+
         if($comment->parent_id != 0) {
             $parent = Comment::find($comment->parent_id);
             $comment->path = $parent->path . '$'. $comment->id . '.';

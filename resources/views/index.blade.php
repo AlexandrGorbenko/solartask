@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Laravel</title>
 
@@ -14,30 +15,10 @@
 
     </head>
     <body>
-        <div id="app" class="container">
-            <section class="section">
-                <h1 class="title">Test task</h1>
-            </section>
-            <div class="field">
-                <div class="control">
-                    <textarea class="textarea" placeholder="Comment"></textarea>
-                </div>
-            </div>
-            <a class="button is-primary">Send</a>
-
-
-            <ul>
-                <li v-for="comment in comments">@{{ comment.text }}</li>
-            </ul>
-
-
-
+        <div id="app">
+            <comments></comments>
         </div>
 
-
-
-
         <script src="js/app.js"></script>
-
     </body>
 </html>

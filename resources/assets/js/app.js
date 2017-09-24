@@ -15,23 +15,12 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+// Vue.component('example', require('./components/Example.vue'));
 
-// Vue.component('comment-list', require('./components/CommentList.vue'));
-// Vue.component('comment', require('./components/Comment.vue'));
+Vue.component('comments', require('./components/Comments.vue'));
 
 
 const app = new Vue({
     el: '#app',
-
-    data: {
-        comments: []
-    },
-
-    mounted() {
-        axios.get('/comments').then(response => this.comments = response.data );
-    },
-
-
 });
 

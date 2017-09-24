@@ -48,9 +48,10 @@ class CommentsController extends Controller
 
         if($comment->parent_id != 0) {
             $parent = Comment::find($comment->parent_id);
-            $comment->path = $parent->path . '$'. $comment->id . '.';
+            $comment->path = $parent->path;
             $comment->level = $parent->level + 1;
         }
+        $comment->path .= '$'. $comment->id . '.';
         $comment->save();
 
         return $this->json_success($comment);
@@ -99,7 +100,7 @@ class CommentsController extends Controller
         if(!$comment)
             return $this->json_error('Wrong id');
 
-        $comment->delete();
+        Comment::where('path', 'like', '%$' . $comment->id . '.%')->delete();
 
         return $this->json_success();
 

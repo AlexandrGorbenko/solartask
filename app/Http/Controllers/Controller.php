@@ -19,8 +19,9 @@ class Controller extends BaseController
         return ['success' => true];
     }
 
-    protected function json_error($erros) {
-        return ['success' => false, 'errors' => $erros];
+    protected function json_error($errors) {
+        if(!is_array($errors)) $errors = [$errors];
+        return ['success' => false, 'errors' => $errors];
     }
 
 }
